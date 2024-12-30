@@ -68,6 +68,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\WeightProgramContext.cs" />
+    <Compile Include="Data\SQLiteConnectionExtension.cs" />
+    <Compile Include="Data\CustomerRepository.cs" />
+    <Compile Include="Data\ICustomerRepository.cs" />
+    <Compile Include="Data\Customer.cs" />
     <Compile Include="StatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
