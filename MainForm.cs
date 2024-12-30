@@ -12,6 +12,8 @@ namespace WeightProgram {
     public partial class MainForm : Form {
         private WeightInputForm m_WeightInputForm;
         private string m_WeightInputFormName = "WeightInputForm";
+        private StatisticForm m_StatisticForm;
+        private string m_StatisticFormName = "StatisticForm";
         public MainForm() {
             InitializeComponent();
             ResizeBegin += (s, e) => { SuspendLayout(); };
@@ -34,6 +36,24 @@ namespace WeightProgram {
             }
             m_WeightInputForm.BringToFront();
             m_WeightInputForm.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e) {
+            if(m_StatisticForm == null) {
+                m_StatisticForm = Application.OpenForms[m_StatisticFormName] as StatisticForm;
+                if(m_StatisticForm == null) {
+                    m_StatisticForm = new StatisticForm();
+                    // TODO Performance: Garbage collection
+                    m_StatisticForm.FormClosed += (x, y) => m_StatisticForm = null;
+                }
+                m_StatisticForm.MdiParent = this;
+            }
+            // QoL: Remember last window state instead of default to Normal
+            if(m_StatisticForm.WindowState == FormWindowState.Minimized) {
+                m_StatisticForm.WindowState = FormWindowState.Normal;
+            }
+            m_StatisticForm.BringToFront();
+            m_StatisticForm.Show();
         }
     }
 }
