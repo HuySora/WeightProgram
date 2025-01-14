@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BDB71E96-F4EF-42BB-B11D-763DCBE405C3}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>WeightProgram</RootNamespace>
     <AssemblyName>WeightProgram</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
