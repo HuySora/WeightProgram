@@ -878,6 +878,7 @@
             this.grpScaleType.TabIndex = 0;
             this.grpScaleType.TabStop = false;
             this.grpScaleType.Text = "Kiểu cân";
+            this.grpScaleType.Visible = false;
             // 
             // txtScaleType
             // 
