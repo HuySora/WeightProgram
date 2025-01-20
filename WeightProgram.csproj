@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WeightProgramModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\WeightProgramModelInitializer.cs" />
     <Compile Include="ExForm\ExtendedForm.cs">
       <SubType>Form</SubType>
     </Compile>
