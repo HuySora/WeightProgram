@@ -12,6 +12,8 @@ namespace WeightProgram {
     public partial class WeightInputForm : Form {
         public WeightInputForm() {
             InitializeComponent();
+            ResizeBegin += (s, e) => { SuspendLayout(); };
+            ResizeEnd += (s, e) => { ResumeLayout(true); };
         }
     }
 }
