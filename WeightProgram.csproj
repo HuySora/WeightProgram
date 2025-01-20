@@ -60,11 +60,34 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\IGenericService.cs" />
+    <Compile Include="Data\WeightData.cs" />
+    <Compile Include="Data\WeightData.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WeightDataService.cs" />
+    <Compile Include="Data\WeightProgramModel.Context.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeightProgramModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WeightProgramModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeightProgramModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WeightProgramModel.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ExForm\ExtendedForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +125,34 @@
     <EmbeddedResource Include="WeightInputForm.resx">
       <DependentUpon>WeightInputForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Data\WeightProgramModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WeightProgramModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="App.config" />
+    <None Include="Data\WeightProgramModel.edmx.diagram">
+      <DependentUpon>WeightProgramModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\WeightProgramModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeightProgramModel.edmx</DependentUpon>
+      <LastGenOutput>WeightProgramModel.Context.Generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\WeightProgramModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WeightProgramModel.edmx</DependentUpon>
+      <LastGenOutput>WeightProgramModel.Generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
