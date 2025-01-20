@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="Data\WeightData.cs" />
     <Compile Include="Data\WeightDataService.cs" />
+    <Compile Include="Data\WeightProgramModelInitializer.cs" />
     <Compile Include="Data\IGenericService.cs" />
     <Compile Include="Data\WeightProgramModel.Context.Generated.cs">
       <AutoGen>True</AutoGen>
