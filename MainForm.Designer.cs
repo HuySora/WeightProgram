@@ -30,6 +30,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1124, 602);
+            this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.ResumeLayout(false);
