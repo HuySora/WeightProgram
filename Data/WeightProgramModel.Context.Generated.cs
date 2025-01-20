@@ -9,6 +9,7 @@
 
 namespace WeightProgram.Data
 {
+    using SQLite.CodeFirst;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
@@ -22,7 +23,8 @@ namespace WeightProgram.Data
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            // Ensure the database is created
+            Database.SetInitializer(new WeightProgramModelInitializer(modelBuilder));
         }
     
         public virtual DbSet<WeightData> WeightDatum { get; set; }
