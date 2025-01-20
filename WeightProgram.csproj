@@ -115,6 +115,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Util\FormExtension.cs" />
     <Compile Include="WeightInputForm.cs">
       <SubType>Form</SubType>
     </Compile>
