@@ -295,6 +295,7 @@
             this.btnPrintWeightDataReceipt.Name = "btnPrintWeightDataReceipt";
             this.btnPrintWeightDataReceipt.Size = new System.Drawing.Size(84, 22);
             this.btnPrintWeightDataReceipt.Text = "In hóa đơn";
+            this.btnPrintWeightDataReceipt.Click += new System.EventHandler(this.btnPrintWeightDataReceipt_Click);
             // 
             // grpWeightData
             // 

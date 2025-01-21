@@ -13,6 +13,7 @@ namespace WeightProgram {
         #region Inline variables
         public MainForm MainForm => MdiParent;
         public WeightDataService WeightDataService => MdiParent.WeightDataService;
+        public ReceiptService ReceiptService => MdiParent.ReceiptService;
         #endregion
         private WeightData m_CurrSelectedWeightData;
         private Timer UpdateTimer;
@@ -66,6 +67,26 @@ namespace WeightProgram {
                 dgvWeightDatum.CurrentCell = dgvWeightDatum.Rows[dgvWeightDatum.Rows.Count - 1].Cells[0];
             }
             dgvWeightDatum.ClearSelection();
+        }
+        private void btnPrintWeightDataReceipt_Click(object sender, EventArgs e) {
+            // Get the current WeightData from the database since m_CurrSelectedWeightData are not real-time
+            var wgtData = WeightDataService.Read(m_CurrSelectedWeightData.Id);
+            if(wgtData == null) {
+                MessageBox.Show($"Không tìm thông số cân Id={m_CurrSelectedWeightData.Id}.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Try get or create a receipt
+            Receipt receipt = wgtData.Receipts.Any() ? wgtData.Receipts.First() : null;
+            if(receipt == null) {
+                if(TryCreateReceipt(wgtData.Id, out receipt, out string errorMessage)) {
+                    // Successfully created the receipt
+                } else {
+                    MessageBox.Show(errorMessage, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            var form = new WeightDataReceiptReportViewerForm(receipt);
+            form.Show();
         }
         private void dgvWeightDatum_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
             if(dgvWeightDatum.Columns[e.ColumnIndex].Name == nameof(WeightData.Receipts)) {
@@ -358,6 +379,28 @@ namespace WeightProgram {
 
             errorMsg = sb.ToString();
             return false;
+        }
+
+        private bool TryCreateReceipt(int wgtId, out Receipt receipt, out string errorMsg) {
+            receipt = null;
+            errorMsg = "";
+            var wgtData = WeightDataService.Read(wgtId);
+            if(wgtData == null) {
+                errorMsg += $"Không tìm thông số cân Id={wgtId}.";
+                return false;
+            }
+            // Validate fields and accumulate error messages
+            if(!txtTotalCost.TryParseInt(out int totalCost)) {
+                //sb.AppendLine("Tổng tiền là bắt buộc.");
+            }
+            receipt = new Receipt {
+                Date = DateTime.Now,
+                TotalCost = totalCost,
+                WeightDataId = wgtData.Id,
+                WeightData = wgtData
+            };
+            ReceiptService.Create(receipt);
+            return true;
         }
     }
 }
