@@ -10,6 +10,7 @@ namespace WeightProgram {
         private string m_WeightInputFormName = "WeightInputForm";
 
         public WeightProgramModelContainer DbContext { get; private set; }
+        public WeightDataService WeightDataService { get; private set; }
 
         private ToolStripStatusLabel lbl_DatabaseStatus;
 
@@ -25,6 +26,7 @@ namespace WeightProgram {
         private void MainForm_Load(object sender, EventArgs e) {
             // Database
             DbContext = new WeightProgramModelContainer();
+            WeightDataService = new WeightDataService(DbContext);
             DbContext.WeightDatum.Find(0); // Initialize database connection
             // Status strip
             lbl_DatabaseStatus = new ToolStripStatusLabel();
