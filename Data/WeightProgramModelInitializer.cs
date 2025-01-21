@@ -9,6 +9,10 @@ namespace WeightProgram.Data {
         }
         protected override void Seed(WeightProgramModelContainer context) {
 #if DEBUG
+            int customerCount = 100;
+            int receiptCountPerCustomerMin = 0;
+            int receiptCountPerCustomerMax = 2;
+            var faker = new Faker();
             // Create a Faker instance for generating fake WeightData data
             var wgtDataFaker = new Faker<WeightData>()
                 .RuleFor(c => c.Id, f => f.IndexFaker + 1)
@@ -27,9 +31,29 @@ namespace WeightProgram.Data {
                     c.Weight2 = c.Weight1 + f.Random.Int(1000, 20000);
                     c.Evaluate();
                 });
+            // Create a Faker instance for generating fake Receipt data
+            var receiptFaker = new Faker<Receipt>()
+                .RuleFor(r => r.Id, f => f.IndexFaker + 1)
+                .RuleFor(r => r.TotalCost, f => f.Random.Int(50, 1000) * 1000)
+                .RuleFor(r => r.Date, f => f.Date.Past(1))
+                .FinishWith((f, r) => {
+                    r.Evaluate();
+                });
 
-            for(int i = 0; i < 100; i++) {
+            for(int i = 0; i < customerCount; i++) {
                 var wgtData = wgtDataFaker.Generate();
+
+                int receiptCount = faker.Random.Int(receiptCountPerCustomerMin, receiptCountPerCustomerMax);
+                for(int j = 0; j < receiptCount; j++) {
+                    var receipt = receiptFaker.Generate();
+                    receipt.Date = faker.Date.Future(1, wgtData.ExitDate);
+                    receipt.Evaluate();
+                    receipt.WeightDataId = wgtData.Id;
+                    receipt.WeightData = wgtData;
+                    wgtData.Receipts.Add(receipt);
+
+                    context.Set<Receipt>().Add(receipt);
+                }
                 context.Set<WeightData>().Add(wgtData);
             }
 #endif
