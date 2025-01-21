@@ -15,6 +15,7 @@ namespace WeightProgram {
 
         public WeightProgramModelContainer DbContext { get; private set; }
         public WeightDataService WeightDataService { get; private set; }
+        public ReceiptService ReceiptService { get; private set; }
 
         public int CurrentScaleWeight { get; private set; }
         private SerialPort m_SerialPort;
@@ -36,6 +37,7 @@ namespace WeightProgram {
             // Database
             DbContext = new WeightProgramModelContainer();
             WeightDataService = new WeightDataService(DbContext);
+            ReceiptService = new ReceiptService(DbContext);
             DbContext.WeightDatum.Find(0); // Initialize database connection
             // SerialPort
             m_SerialPort = new SerialPort("COM1", 1200, Parity.Even, 7, StopBits.One);
