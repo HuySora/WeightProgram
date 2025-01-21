@@ -192,6 +192,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\WeightDataReceipt.rdlc" />
     <EmbeddedResource Include="WeightInputForm.resx">
       <DependentUpon>WeightInputForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +204,7 @@
       <DependentUpon>WeightProgramModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\WeightProgram.Data.WeightData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
