@@ -8,6 +8,8 @@ using WeightProgram.Data;
 
 namespace WeightProgram {
     public partial class MainForm : Form {
+        public static Random Random = new Random();
+
         private WeightInputForm m_WeightInputForm;
         private string m_WeightInputFormName = "WeightInputForm";
 
