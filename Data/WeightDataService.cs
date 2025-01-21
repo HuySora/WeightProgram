@@ -35,5 +35,10 @@ namespace WeightProgram.Data {
                 m_DbContext.SaveChanges();
             }
         }
+        
+        public int GetLastPrimaryKey() {
+            // TODO: Optimize
+            return m_DbContext.WeightDatum.Any() ? m_DbContext.WeightDatum.Max(c => c.Id) : 0;
+        }
     }
 }
