@@ -119,6 +119,11 @@ namespace WeightProgram {
             } catch(Exception ex) {
                 lbl_SerialPortStatus.Text = $"SerialPort={ex.Message}";
             }
+#if DEBUG
+            if (!m_SerialPort.IsOpen) {
+                CurrentScaleWeight = Random.Next(1000, 1000000);
+            }
+#endif
         }
         #endregion
 
