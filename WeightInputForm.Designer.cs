@@ -41,6 +41,7 @@
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsWeightDatum = new System.Windows.Forms.ToolStrip();
             this.btnNewWeightData = new System.Windows.Forms.ToolStripButton();
             this.btnSaveWeightData = new System.Windows.Forms.ToolStripButton();
@@ -132,7 +133,8 @@
             this.Column13,
             this.Column14,
             this.Column15,
-            this.Column16});
+            this.Column16,
+            this.Column17});
             this.dgvWeightDatum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWeightDatum.Location = new System.Drawing.Point(0, 485);
             this.dgvWeightDatum.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
@@ -238,6 +240,12 @@
             this.Column16.HeaderText = "TL 1 bao (gr)";
             this.Column16.Name = "Column16";
             this.Column16.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Hóa đơn";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
             // 
             // tsWeightDatum
             // 
@@ -966,6 +974,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.ToolStrip tsWeightDatum;
         private System.Windows.Forms.ToolStripButton btnNewWeightData;
         private System.Windows.Forms.GroupBox grpWeightData;

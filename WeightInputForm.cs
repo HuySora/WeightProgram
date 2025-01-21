@@ -67,6 +67,19 @@ namespace WeightProgram {
             }
             dgvWeightDatum.ClearSelection();
         }
+        private void dgvWeightDatum_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e) {
+            if(dgvWeightDatum.Columns[e.ColumnIndex].Name == nameof(WeightData.Receipts)) {
+                if(e.Value is ICollection<Receipt> receipts) {
+                    // Comma-separated string of ReceiptCodes (truncated to max 7 characters each)
+                    e.Value = string.Join(", ",
+                        receipts.Select(
+                            r => r.GetReceiptCodeShort
+                        )
+                    );
+                    e.FormattingApplied = true;
+                }
+            }
+        }
         private void dgvWeightDatum_SelectionChanged(object sender, EventArgs e) {
             if(dgvWeightDatum.SelectedCells.Count == 0) {
                 m_CurrSelectedWeightData = null;
@@ -123,7 +136,8 @@ namespace WeightProgram {
                 { "Kiểu cân", "ScaleType" },
                 { "Tên kho", "WarehouseName" },
                 { "Số bao", "ContainerCount" },
-                { "TL 1 bao (gr)", "ContainerWeightPerUnit" }
+                { "TL 1 bao (gr)", "ContainerWeightPerUnit" },
+                { "Hóa đơn", "Receipts" }
             };
             for(int i = 0; i < dgvWeightDatum.ColumnCount; i++) {
                 if(!headerTxt2DataPropName.TryGetValue(dgvWeightDatum.Columns[i].HeaderText, out string dataPropName)) {
@@ -132,6 +146,7 @@ namespace WeightProgram {
                 dgvWeightDatum.Columns[i].Name = dataPropName;
                 dgvWeightDatum.Columns[i].DataPropertyName = dataPropName;
             }
+            dgvWeightDatum.CellFormatting += dgvWeightDatum_CellFormatting;
             dgvWeightDatum.SelectionChanged += dgvWeightDatum_SelectionChanged;
         }
         private void UpdateWeightDataumView() {
