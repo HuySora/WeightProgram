@@ -173,6 +173,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Util\PrintExtension.cs" />
     <Compile Include="Util\FormExtension.cs" />
     <Compile Include="WeightDataReceiptReportViewerForm.cs">
       <SubType>Form</SubType>
