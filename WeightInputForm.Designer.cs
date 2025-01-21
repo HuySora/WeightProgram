@@ -260,6 +260,7 @@
             this.btnNewWeightData.Name = "btnNewWeightData";
             this.btnNewWeightData.Size = new System.Drawing.Size(70, 22);
             this.btnNewWeightData.Text = "Tạo mới";
+            this.btnNewWeightData.Click += new System.EventHandler(this.btnNewWeightData_Click);
             // 
             // btnSaveWeightData
             // 
@@ -268,6 +269,7 @@
             this.btnSaveWeightData.Name = "btnSaveWeightData";
             this.btnSaveWeightData.Size = new System.Drawing.Size(128, 22);
             this.btnSaveWeightData.Text = "Nhận và lưu số cân";
+            this.btnSaveWeightData.Click += new System.EventHandler(this.btnSaveWeightData_Click);
             // 
             // btnDeselectWeightData
             // 
@@ -276,6 +278,7 @@
             this.btnDeselectWeightData.Name = "btnDeselectWeightData";
             this.btnDeselectWeightData.Size = new System.Drawing.Size(98, 22);
             this.btnDeselectWeightData.Text = "Hủy lựa chọn";
+            this.btnDeselectWeightData.Click += new System.EventHandler(this.btnDeselectWeightData_Click);
             // 
             // btnPrintWeightDataReceipt
             // 
@@ -680,6 +683,7 @@
             this.txtContainerWeightPerUnit.Size = new System.Drawing.Size(196, 31);
             this.txtContainerWeightPerUnit.TabIndex = 7;
             this.txtContainerWeightPerUnit.Text = "99999";
+            this.txtContainerWeightPerUnit.TextChanged += new System.EventHandler(this.txtContainerWeightPerUnit_TextChanged);
             // 
             // lblContainerWeightPerUnit
             // 
@@ -702,6 +706,7 @@
             this.txtContainerCount.Size = new System.Drawing.Size(196, 31);
             this.txtContainerCount.TabIndex = 5;
             this.txtContainerCount.Text = "9999";
+            this.txtContainerCount.TextChanged += new System.EventHandler(this.txtContainerCount_TextChanged);
             // 
             // lblContainerCount
             // 
@@ -908,6 +913,7 @@
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "WeightInputForm";
             this.Text = "Chương trình cân";
+            this.Load += new System.EventHandler(this.WeightInputForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWeightDatum)).EndInit();
             this.tsWeightDatum.ResumeLayout(false);
             this.tsWeightDatum.PerformLayout();
