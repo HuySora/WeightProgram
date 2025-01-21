@@ -79,10 +79,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Receipt.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Receipt.cs" />
     <Compile Include="Data\WeightData.Generated.cs">
       <DependentUpon>WeightProgramModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\WeightData.cs" />
+    <Compile Include="Data\ReceiptService.cs" />
     <Compile Include="Data\WeightDataService.cs" />
     <Compile Include="Data\WeightProgramModelInitializer.cs" />
     <Compile Include="Data\IGenericService.cs" />

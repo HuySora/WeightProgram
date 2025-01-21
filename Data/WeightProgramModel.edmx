@@ -14,6 +14,11 @@
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="WeightProgramModel.Data" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="WeightProgramModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="WeightDatum" EntityType="WeightProgramModel.Data.WeightData" />
+          <EntitySet Name="Receipts" EntityType="WeightProgramModel.Data.Receipt" />
+          <AssociationSet Name="WeightDataReceipt" Association="WeightProgramModel.Data.WeightDataReceipt">
+            <End Role="WeightData" EntitySet="WeightDatum" />
+            <End Role="Receipt" EntitySet="Receipts" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="WeightData">
           <Key>
@@ -35,7 +40,31 @@
           <Property Name="Notes" Type="String" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="true" />
           <Property Name="ExitDate" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="Receipts" Relationship="WeightProgramModel.Data.WeightDataReceipt" FromRole="WeightData" ToRole="Receipt" />
         </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceiptCode" Type="String" Nullable="false" cg:SetterAccess="Protected" />
+          <Property Name="TotalCost" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="WeightData" Relationship="WeightProgramModel.Data.WeightDataReceipt" FromRole="Receipt" ToRole="WeightData" />
+          <Property Name="WeightDataId" Type="Int32" Nullable="true" />
+        </EntityType>
+        <Association Name="WeightDataReceipt">
+          <End Type="WeightProgramModel.Data.WeightData" Role="WeightData" Multiplicity="0..1" />
+          <End Type="WeightProgramModel.Data.Receipt" Role="Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeightData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="WeightDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="038217b6dc514d788e3ab553f7a5b05e" Name="Diagram1" >
         <EntityTypeShape EntityType="WeightProgramModel.Data.WeightData" Width="3.125" PointX="3.75" PointY="3.5" />
+        <EntityTypeShape EntityType="WeightProgramModel.Data.Receipt" Width="1.5" PointX="7.75" PointY="3.5" />
+        <AssociationConnector Association="WeightProgramModel.Data.WeightDataReceipt" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

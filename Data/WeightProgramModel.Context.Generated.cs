@@ -28,5 +28,6 @@ namespace WeightProgram.Data
         }
     
         public virtual DbSet<WeightData> WeightDatum { get; set; }
+        public virtual DbSet<Receipt> Receipts { get; set; }
     }
 }

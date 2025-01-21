@@ -14,6 +14,12 @@ namespace WeightProgram.Data
     
     public partial class WeightData
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public WeightData()
+        {
+            this.Receipts = new HashSet<Receipt>();
+        }
+    
         public int Id { get; set; }
         public string WarehouseName { get; set; }
         public string ScaleType { get; set; }
@@ -30,5 +36,8 @@ namespace WeightProgram.Data
         public string Notes { get; set; }
         public Nullable<System.DateTime> EntryDate { get; set; }
         public Nullable<System.DateTime> ExitDate { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receipt> Receipts { get; set; }
     }
 }
