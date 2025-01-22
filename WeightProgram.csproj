@@ -173,6 +173,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StatisticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatisticForm.Designer.cs">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Util\PrintExtension.cs" />
     <Compile Include="Util\FormExtension.cs" />
     <Compile Include="WeightDataReceiptReportViewerForm.cs">
@@ -200,6 +206,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Reports\WeightDataReceipt.rdlc" />
+    <EmbeddedResource Include="StatisticForm.resx">
+      <DependentUpon>StatisticForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WeightDataReceiptReportViewerForm.resx">
       <DependentUpon>WeightDataReceiptReportViewerForm.cs</DependentUpon>
     </EmbeddedResource>
