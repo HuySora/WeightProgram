@@ -179,6 +179,7 @@
     <Compile Include="StatisticForm.Designer.cs">
       <DependentUpon>StatisticForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Util\ExcelExtension.cs" />
     <Compile Include="Util\PrintExtension.cs" />
     <Compile Include="Util\FormExtension.cs" />
     <Compile Include="WeightDataReceiptReportViewerForm.cs">
