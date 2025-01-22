@@ -564,6 +564,7 @@
             this.btnAllDays.TabIndex = 2;
             this.btnAllDays.Text = "Tất cả";
             this.btnAllDays.UseVisualStyleBackColor = true;
+            this.btnAllDays.Click += new System.EventHandler(this.btnAllDays_Click);
             // 
             // btnToday
             // 
@@ -574,6 +575,7 @@
             this.btnToday.TabIndex = 1;
             this.btnToday.Text = "Hôm nay";
             this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnYesterday
             // 
@@ -584,6 +586,7 @@
             this.btnYesterday.TabIndex = 0;
             this.btnYesterday.Text = "Hôm qua";
             this.btnYesterday.UseVisualStyleBackColor = true;
+            this.btnYesterday.Click += new System.EventHandler(this.btnYesterday_Click);
             // 
             // dtpToDate
             // 
@@ -651,6 +654,7 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(104, 22);
             this.btnRefresh.Text = "Làm mới bảng";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnPrintWeightDataReceipt
             // 
@@ -659,6 +663,7 @@
             this.btnPrintWeightDataReceipt.Name = "btnPrintWeightDataReceipt";
             this.btnPrintWeightDataReceipt.Size = new System.Drawing.Size(84, 22);
             this.btnPrintWeightDataReceipt.Text = "In hóa đơn";
+            this.btnPrintWeightDataReceipt.Click += new System.EventHandler(this.btnPrintWeightDataReceipt_Click);
             // 
             // btnExport
             // 
@@ -667,6 +672,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(81, 22);
             this.btnExport.Text = "Xuất excel";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // StatisticForm
             // 
@@ -680,6 +686,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StatisticForm";
             this.Text = "Thống kê";
+            this.Load += new System.EventHandler(this.StatisticForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStatistic)).EndInit();
             this.grpFilter.ResumeLayout(false);
             this.splitFilter.Panel1.ResumeLayout(false);
