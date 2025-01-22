@@ -26,13 +26,15 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.btnOpenWeightInputForm = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.btnOpenStatisticForm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnOpenWeightInputForm});
+            this.btnOpenWeightInputForm,
+            this.btnOpenStatisticForm});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -53,6 +55,13 @@
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1124, 22);
             this.statusStrip.TabIndex = 2;
+            // 
+            // btnOpenStatisticForm
+            // 
+            this.btnOpenStatisticForm.Name = "btnOpenStatisticForm";
+            this.btnOpenStatisticForm.Size = new System.Drawing.Size(68, 19);
+            this.btnOpenStatisticForm.Text = "Thống kê";
+            this.btnOpenStatisticForm.Click += new System.EventHandler(this.btnOpenStatisticForm_Click);
             // 
             // MainForm
             // 
@@ -80,6 +89,7 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem btnOpenWeightInputForm;
         private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripMenuItem btnOpenStatisticForm;
     }
 }
 
