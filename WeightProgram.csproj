@@ -134,10 +134,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Customer.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerService.cs" />
+    <Compile Include="Data\Goods.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\Receipt.Generated.cs">
       <DependentUpon>WeightProgramModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Receipt.cs" />
+    <Compile Include="Data\GoodsService.cs" />
+    <Compile Include="Data\WarehouseService.cs" />
+    <Compile Include="Data\Warehouse.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\WeightData.Generated.cs">
       <DependentUpon>WeightProgramModel.tt</DependentUpon>
     </Compile>

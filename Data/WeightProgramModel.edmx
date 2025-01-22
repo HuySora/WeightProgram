@@ -19,6 +19,9 @@
             <End Role="WeightData" EntitySet="WeightDatum" />
             <End Role="Receipt" EntitySet="Receipts" />
           </AssociationSet>
+          <EntitySet Name="Warehouses" EntityType="WeightProgramModel.Data.Warehouse" />
+          <EntitySet Name="Customers" EntityType="WeightProgramModel.Data.Customer" />
+          <EntitySet Name="Goods" EntityType="WeightProgramModel.Data.Goods" />
         </EntityContainer>
         <EntityType Name="WeightData">
           <Key>
@@ -65,6 +68,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
