@@ -12,6 +12,8 @@ namespace WeightProgram {
 
         private WeightInputForm m_WeightInputForm;
         private string m_WeightInputFormName = "WeightInputForm";
+        private DataEntryForm m_DataEntryForm;
+        private string m_DataEntryFormName = "DataEntryForm";
 
         public WeightProgramModelContainer DbContext { get; private set; }
         public WeightDataService WeightDataService { get; private set; }
@@ -71,6 +73,24 @@ namespace WeightProgram {
             }
             m_WeightInputForm.BringToFront();
             m_WeightInputForm.Show();
+        }
+        private void btnOpenDataEntryForm_Click(object sender, EventArgs e) {
+            if(m_DataEntryForm == null) {
+                m_DataEntryForm = Application.OpenForms[m_DataEntryFormName] as DataEntryForm;
+                if(m_DataEntryForm == null) {
+                    m_DataEntryForm = new DataEntryForm() {
+                        MdiParent = this,
+                    };
+                    // TODO Performance: Garbage collection
+                    m_DataEntryForm.FormClosed += (x, y) => m_DataEntryForm = null;
+                }
+            }
+            // QoL: Remember last window state instead of default to Normal
+            if(m_DataEntryForm.WindowState == FormWindowState.Minimized) {
+                m_DataEntryForm.WindowState = FormWindowState.Normal;
+            }
+            m_DataEntryForm.BringToFront();
+            m_DataEntryForm.Show();
         }
         #endregion
 
