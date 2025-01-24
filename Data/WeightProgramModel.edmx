@@ -14,6 +14,9 @@
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="WeightProgramModel.Data" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="WeightProgramModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="WeightDatum" EntityType="WeightProgramModel.Data.WeightData" />
+          <EntitySet Name="Warehouses" EntityType="WeightProgramModel.Data.Warehouse" />
+          <EntitySet Name="Customers" EntityType="WeightProgramModel.Data.Customer" />
+          <EntitySet Name="Goods" EntityType="WeightProgramModel.Data.Goods" />
         </EntityContainer>
         <EntityType Name="WeightData">
           <Key>
@@ -35,6 +38,27 @@
           <Property Name="Notes" Type="String" Nullable="false" />
           <Property Name="EntryDate" Type="DateTime" Nullable="true" />
           <Property Name="ExitDate" Type="DateTime" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>

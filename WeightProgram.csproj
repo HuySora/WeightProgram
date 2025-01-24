@@ -73,7 +73,19 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Customer.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CustomerService.cs" />
+    <Compile Include="Data\Goods.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GoodsService.cs" />
     <Compile Include="Data\IGenericService.cs" />
+    <Compile Include="Data\Warehouse.Generated.cs">
+      <DependentUpon>WeightProgramModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WarehouseService.cs" />
     <Compile Include="Data\WeightData.cs" />
     <Compile Include="Data\WeightData.Generated.cs">
       <DependentUpon>WeightProgramModel.tt</DependentUpon>
