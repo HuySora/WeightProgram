@@ -561,7 +561,6 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "DataEntryForm";
             this.Text = "Dữ liệu";
-            this.Load += new System.EventHandler(this.DataEntryForm_Load);
             this.tabControlMain.ResumeLayout(false);
             this.tabPageWarehouses.ResumeLayout(false);
             this.tabPageWarehouses.PerformLayout();
